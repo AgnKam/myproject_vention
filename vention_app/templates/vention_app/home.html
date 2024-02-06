@@ -1,36 +1,61 @@
-
 {% extends 'vention_app/base.html' %}
 
 {% block title %}Task Manager Home{% endblock %}
 
 {% block content %}
-<h2>Welcome to the Task Manager</h2>
-<p>Manage your tasks efficiently and easily.</p>
+<style>
+    .home-content {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .categories-section, .recent-tasks-section {
+        margin-top: 20px;
+        padding: 10px;
+    }
+    .category-card, .task-card {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    .category-card h4, .task-card h4 {
+        margin: 0 0 10px 0;
+        color: #0277bd;
+    }
+</style>
 
-<div class="categories">
-    <h3>Categories</h3>
-    {% for category in categories %}
-    <div class="category">
-        <h4>{{ category.name }}</h4>
-        <p>{{ category.description }}</p>
-    </div>
-    {% empty %}
-    <p>No categories found.</p>
-    {% endfor %}
-</div>
+<div class="home-content">
+    <h2>Welcome to the Task Manager</h2>
+    <p>Manage your tasks efficiently and easily.</p>
 
-<div class="recent-tasks">
-    <h3>Recent Tasks</h3>
-    {% for task in recent_tasks %}
-    <div class="task">
-        <h4>{{ task.title }}</h4>
-        <p>{{ task.description }}</p>
-        <p>Status: {% if task.completed %}Completed{% else %}Pending{% endif %}</p>
+    <div class="categories-section">
+        <h3>Categories</h3>
+        <div class="categories">
+            {% for category in categories %}
+            <div class="category-card">
+                <h4>{{ category.name }}</h4>
+                <p>{{ category.description }}</p>
+            </div>
+            {% empty %}
+            <p>No categories found.</p>
+            {% endfor %}
+        </div>
     </div>
-    {% empty %}
-    <p>No recent tasks.</p>
-    {% endfor %}
+
+    <div class="recent-tasks-section">
+        <h3>Recent Tasks</h3>
+        <div class="tasks">
+            {% for task in recent_tasks %}
+            <div class="task-card">
+                <h4>{{ task.title }}</h4>
+                <p>{{ task.description }}</p>
+                <p>Status: {% if task.completed %}Completed{% else %}Pending{% endif %}</p>
+            </div>
+            {% empty %}
+            <p>No recent tasks.</p>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 {% endblock %}
-
-

@@ -3,39 +3,38 @@
 {% block title %}Task Manager{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h2>Task Manager</h2>
-    
-    <a href="{% url 'task_create' %}" class="btn btn-primary">Add New Task</a>
+<h2>Task Manager</h2>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Due Date</th>
-                <th>Status</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for task in tasks %}
-            <tr>
-                <td>{{ task.title }}</td>
-                <td>{{ task.description }}</td>
-                <td>{{ task.due_date }}</td>
-                <td>{{ task.completed|yesno:"Completed,Pending" }}</td>
-                <td>
-                    <a href="{% url 'task_update' task.id %}" class="btn btn-secondary">Edit</a>
-                    <a href="{% url 'task_delete' task.id %}" class="btn btn-danger">Delete</a>
-                </td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td colspan="5">No tasks available.</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
+<a href="{% url 'task_create' %}" class="btn">Add New Task</a>
+
+<table style="width: 100%; border-collapse: collapse;">
+    <thead>
+        <tr style="background-color: #f4f4f8;">
+            <th style="padding: 8px; border: 1px solid #ddd;">Title</th>
+            <th style="padding: 8px; border: 1px solid #ddd;">Description</th>
+            <th style="padding: 8px; border: 1px solid #ddd;">Due Date</th>
+            <th style="padding: 8px; border: 1px solid #ddd;">Status</th>
+            <th style="padding: 8px; border: 1px solid #ddd;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;">{{ task.title }}</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">{{ task.description }}</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">{{ task.due_date }}</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">{{ task.completed|yesno:"Completed,Pending" }}</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">
+                <a href="{% url 'task_update' task.id %}" class="btn">Edit</a>
+                <a href="{% url 'task_delete' task.id %}" class="btn">Delete</a>
+                
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5" style="padding: 8px; border: 1px solid #ddd;">No tasks available.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

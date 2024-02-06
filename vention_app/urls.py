@@ -15,7 +15,7 @@ urlpatterns = [
     path('', home, name='home'),  # Root URL for your home page
 
     # Task management URLs
-    path('tasks/', TaskListView.as_view(), name='task_list'),  # List tasks
+    path('tasks/', TaskListView.as_view(), name='tasks'),  # List tasks
     path('tasks/create/', TaskCreateView.as_view(), name='task_create'),  # Create a new task
     path('tasks/<int:pk>/update/', TaskUpdateView.as_view(), name='task_update'),  # Update a task
     path('tasks/<int:pk>/delete/', TaskDeleteView.as_view(), name='task_delete'),  # Delete a task

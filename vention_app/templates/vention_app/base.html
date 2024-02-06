@@ -1,12 +1,56 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>{% block title %}My Django App{% endblock %}</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #e0f7fa; }
-        header, footer { background: lightblue; padding: 10px; text-align: center; }
-        nav { background: #b3e5fc; padding: 5px; text-align: center; }
-        nav a { margin: 5px; color: #0277bd; text-decoration: none; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f8;
+            margin: 0;
+            padding: 0;
+        }
+        header, footer {
+            background: #2d3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background: #FAA519;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #FAA519;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #FAA519;
+        }
     </style>
 </head>
 <body>
@@ -14,11 +58,9 @@
         <h1>My Django App for Vention Company</h1>
     </header>
     <nav>
-        <!-- Navigation Links -->
         <a href="/">Home</a>
         <a href="/tasks/">Tasks</a>
         <a href="/categories/">Categories</a>
-
     </nav>
     <div class="container">
         {% block content %}
@@ -30,4 +72,3 @@
     </footer>
 </body>
 </html>
-

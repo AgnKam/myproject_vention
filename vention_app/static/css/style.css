@@ -1,29 +1,42 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff; /* light blue background */
-    color: #333; /* dark text for contrast */
-    margin: 0;
-    padding: 0;
-}
-
-.header {
-    background-color: #e0f2f1;
-    padding: 10px 0;
+.header, .footer {
+    background: lightblue;
+    padding: 10px;
     text-align: center;
 }
 
-.container {
-    width: 80%;
-    margin: 20px auto;
+.main-nav {
+    background: #b3e5fc;
+    padding: 5px;
+    text-align: center;
 }
 
-.nav-link {
-    color: #0277bd; /* darker blue for links */
-    margin: 0 10px;
+.main-nav a {
+    margin: 5px;
+    color: #0277bd;
     text-decoration: none;
-    font-size: 16px;
 }
 
-.nav-link:hover {
-    text-decoration: underline;
+.task-manager-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #000000;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.task-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.task-table th, .task-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.task-table th {
+    background-color: #f4f4f8;
+}
+

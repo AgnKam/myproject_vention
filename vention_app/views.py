@@ -44,7 +44,7 @@ class TaskCreateView(CreateView):
     model = Task
     form_class = TaskForm
     template_name = 'vention_app/task_create.html'  # Replace with your template path
-    success_url = reverse_lazy('task_list')
+    success_url = reverse_lazy('tasks')
 
 class TaskUpdateView(UpdateView):
     model = Task
