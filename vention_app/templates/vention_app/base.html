@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Django App{% endblock %}</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #e0f7fa; }
+        header, footer { background: lightblue; padding: 10px; text-align: center; }
+        nav { background: #b3e5fc; padding: 5px; text-align: center; }
+        nav a { margin: 5px; color: #0277bd; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Django App</h1>
+    </header>
+    <nav>
+        <!-- Navigation Links -->
+        <a href="/">Home</a>
+        <a href="/api/tasks/">Tasks</a>
+        <a href="/api/categories/">Categories</a>
+
+    </nav>
+    <div class="container">
+        {% block content %}
+        <!-- Content specific to each page will go here -->
+        {% endblock %}
+    </div>
+    <footer>
+        <p>Footer content here</p>
+    </footer>
+</body>
+</html>
+
