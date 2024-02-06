@@ -1,0 +1,9 @@
+{% extends 'vention_app/base.html' %}
+{% block content %}
+<h2>Task List</h2>
+<ul>
+    {% for task in tasks %}
+    <li>{{ task.title }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

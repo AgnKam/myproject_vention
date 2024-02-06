@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 class Category(models.Model):
@@ -9,4 +10,5 @@ class Task(models.Model):
     description = models.TextField()
     completed = models.BooleanField(default=False)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    due_date = models.DateField(null=True, blank=True) # An extra
 

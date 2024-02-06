@@ -1,0 +1,31 @@
+{% extends 'vention_app/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Category List</h2>
+    <a href="{% url 'category_create' %}" class="btn btn-primary">Add New Category</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in object_list %}
+            <tr>
+                <td>{{ category.name }}</td>
+                <td>
+                    <a href="{% url 'category_update' category.id %}" class="btn btn-secondary">Edit</a>
+                    <a href="{% url 'category_delete' category.id %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2">No categories available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

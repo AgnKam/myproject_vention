@@ -1,11 +1,36 @@
 
 {% extends 'vention_app/base.html' %}
 
-{% block title %}Home Page{% endblock %}
+{% block title %}Task Manager Home{% endblock %}
 
 {% block content %}
-    <h2>Welcome to the Home Page</h2>
-    <p>This is the home page of our Django app.</p>
-    <!-- Add more content specific to home page here -->
+<h2>Welcome to the Task Manager</h2>
+<p>Manage your tasks efficiently and easily.</p>
+
+<div class="categories">
+    <h3>Categories</h3>
+    {% for category in categories %}
+    <div class="category">
+        <h4>{{ category.name }}</h4>
+        <p>{{ category.description }}</p>
+    </div>
+    {% empty %}
+    <p>No categories found.</p>
+    {% endfor %}
+</div>
+
+<div class="recent-tasks">
+    <h3>Recent Tasks</h3>
+    {% for task in recent_tasks %}
+    <div class="task">
+        <h4>{{ task.title }}</h4>
+        <p>{{ task.description }}</p>
+        <p>Status: {% if task.completed %}Completed{% else %}Pending{% endif %}</p>
+    </div>
+    {% empty %}
+    <p>No recent tasks.</p>
+    {% endfor %}
+</div>
 {% endblock %}
+
 

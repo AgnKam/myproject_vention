@@ -1,0 +1,41 @@
+{% extends 'vention_app/base.html' %}
+
+{% block title %}Task Manager{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Task Manager</h2>
+    
+    <a href="{% url 'task_create' %}" class="btn btn-primary">Add New Task</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.title }}</td>
+                <td>{{ task.description }}</td>
+                <td>{{ task.due_date }}</td>
+                <td>{{ task.completed|yesno:"Completed,Pending" }}</td>
+                <td>
+                    <a href="{% url 'task_update' task.id %}" class="btn btn-secondary">Edit</a>
+                    <a href="{% url 'task_delete' task.id %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No tasks available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
